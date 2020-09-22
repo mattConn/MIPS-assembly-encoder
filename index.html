@@ -182,7 +182,7 @@
 
   <option value="0">0</option>
 <option value="1">1</option>
-<option value="2">2</option>
+<option value="3">2</option>
 <option value="3">3</option>
 <option value="4">4</option>
 <option value="5">5</option>
@@ -241,7 +241,174 @@
 
   </table>
 
-<!-- hex result-->
+  </div> <!-- end r-type-->
+
+  <hr>
+
+<div id="i-type">
+<h2>I-Type</h2>
+<p>Ex: addi $t0, $t0, 6</p>
+<p>or</p>
+<p>lw $s2, 20($s0)</p>
+
+<!--operator-->
+<select name="i-op" id="i-op" data-target="#i-instruction .op">
+  <option value="NONE">operator</option>
+
+  <option value="beq">beq</option>
+  <option value="bne">bne</option>
+  <option value="addi">addi</option>
+  <option value="addiu">addiu</option>
+  <option value="slti">slti</option>
+  <option value="sltiu">sltiu</option>
+  <option value="andi">andi</option>
+  <option value="ori">ori</option>
+  <option value="lui">lui</option>
+  <option value="lw">lw</option>
+  <option value="sw">sw</option>
+
+</select>
+
+<!--rt-->
+<select name="i-rt" id="i-rt" data-target="#i-instruction .rt">
+  <option value="0">rt,</option>
+
+  <option value="0">$zero,</option>
+  <option value="1">$at,</option>
+  <option value="2">$v0,</option>
+  <option value="3">$v1,</option>
+  <option value="4">$a0,</option>
+  <option value="5">$a1,</option>
+  <option value="6">$a2,</option>
+  <option value="7">$a3,</option>
+  <option value="8">$t0,</option>
+  <option value="9">$t1,</option>
+  <option value="10">$t2,</option>
+  <option value="11">$t3,</option>
+  <option value="12">$t4,</option>
+  <option value="13">$t5,</option>
+  <option value="14">$t6,</option>
+  <option value="15">$t7,</option>
+  <option value="16">$s0,</option>
+  <option value="17">$s1,</option>
+  <option value="18">$s2,</option>
+  <option value="19">$s3,</option>
+  <option value="20">$s4,</option>
+  <option value="21">$s5,</option>
+  <option value="22">$s6,</option>
+  <option value="23">$s7,</option>
+  <option value="24">$t8,</option>
+  <option value="25">$t9,</option>
+  <option value="26">$k0,</option>
+  <option value="27">$k1,</option>
+  <option value="28">$gp,</option>
+  <option value="29">$sp,</option>
+  <option value="30">$fp,</option>
+  <option value="31">$ra,</option>
+</select>
+
+<!--rs-->
+<select name="i-rs" id="i-rs" data-target="#i-instruction .rs">
+  <option value="0">rs,</option>
+
+  <option value="0">$zero,</option>
+  <option value="1">$at,</option>
+  <option value="2">$v0,</option>
+  <option value="3">$v1,</option>
+  <option value="4">$a0,</option>
+  <option value="5">$a1,</option>
+  <option value="6">$a2,</option>
+  <option value="7">$a3,</option>
+  <option value="8">$t0,</option>
+  <option value="9">$t1,</option>
+  <option value="10">$t2,</option>
+  <option value="11">$t3,</option>
+  <option value="12">$t4,</option>
+  <option value="13">$t5,</option>
+  <option value="14">$t6,</option>
+  <option value="15">$t7,</option>
+  <option value="16">$s0,</option>
+  <option value="17">$s1,</option>
+  <option value="18">$s2,</option>
+  <option value="19">$s3,</option>
+  <option value="20">$s4,</option>
+  <option value="21">$s5,</option>
+  <option value="22">$s6,</option>
+  <option value="23">$s7,</option>
+  <option value="24">$t8,</option>
+  <option value="25">$t9,</option>
+  <option value="26">$k0,</option>
+  <option value="27">$k1,</option>
+  <option value="28">$gp,</option>
+  <option value="29">$sp,</option>
+  <option value="30">$fp,</option>
+  <option value="31">$ra,</option>
+</select>
+
+<!--imm-->
+<select name="i-imm" id="i-imm" data-target="#i-instruction .imm">
+  <option value="0">imm</option>
+
+  <option value="0">$zero</option>
+  <option value="1">$at</option>
+  <option value="2">$v0</option>
+  <option value="3">$v1</option>
+  <option value="4">$a0</option>
+  <option value="5">$a1</option>
+  <option value="6">$a2</option>
+  <option value="7">$a3</option>
+  <option value="8">$t0</option>
+  <option value="9">$t1</option>
+  <option value="10">$t2</option>
+  <option value="11">$t3</option>
+  <option value="12">$t4</option>
+  <option value="13">$t5</option>
+  <option value="14">$t6</option>
+  <option value="15">$t7</option>
+  <option value="16">$s0</option>
+  <option value="17">$s1</option>
+  <option value="18">$s2</option>
+  <option value="19">$s3</option>
+  <option value="20">$s4</option>
+  <option value="21">$s5</option>
+  <option value="22">$s6</option>
+  <option value="23">$s7</option>
+  <option value="24">$t8</option>
+  <option value="25">$t9</option>
+  <option value="26">$k0</option>
+  <option value="27">$k1</option>
+  <option value="28">$gp</option>
+  <option value="29">$sp</option>
+  <option value="30">$fp</option>
+  <option value="31">$ra</option>
+</select>
+<hr>
+
+<!-- display result-->
+  <table id="i-instruction">
+    <tr>
+      <td colspan="6"><p class="hex">00000000</p></td>
+    </tr>
+    <tr>
+      <td><span class="op">000000</span></td>
+     <td><span class="rs">00000</span></td>
+      <td><span class="rt">00000</span></td>
+     <td colspan="3"><span class="imm">0000000000000000</span></td>
+
+    </tr>
+
+    <tr>
+      <td>opcode</td>
+      <td>rs</td>
+      <td>rt</td>
+      <td>rd</td>
+      <td>shamt</td>
+      <td>fncode</td>
+    </tr>
+
+  </table>
+
+  </div> <!-- end i-type-->
 
 
 <hr>

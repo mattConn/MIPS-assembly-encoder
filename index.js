@@ -20,6 +20,21 @@ const rTypeFnCodes = {
   "sltu": 43,
 }
 
+const iTypeOpCodes = {
+  "NONE": 0,
+  "beq": 4,
+  "bne": 5,
+  "addi": 8,
+  "addiu": 9,
+  "slti": 10,
+  "sltiu": 11,
+  "andi": 12,
+  "ori": 13,
+  "lui": 15,
+  "lw": 35,
+  "sw": 43,
+}
+
 // 32 registers
 const registers = [];
 for(let i = 0; i < 32; i++) registers.push(i);
@@ -58,5 +73,13 @@ document.querySelector('#r-rt').onchange = (e) => targetHandler(e,registers,5);
 // shamt 
 document.querySelector('#r-shamt').onchange = (e) => targetHandler(e,registers,5);
 
-
-const rTypeOp = document.querySelector('#r-op');
+// i type option handlers
+// ======================
+// operator
+document.querySelector('#i-op').onchange = (e) => targetHandler(e,iTypeOpCodes,6);
+// rt
+document.querySelector('#i-rt').onchange = (e) => targetHandler(e,registers,5);
+// rs
+document.querySelector('#i-rs').onchange = (e) => targetHandler(e,registers,5);
+// imm 
+document.querySelector('#i-imm').onchange = (e) => targetHandler(e,iTypeOpCodes,16);
