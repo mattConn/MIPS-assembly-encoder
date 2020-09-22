@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>MIPS Assembly Encoder</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,10 +28,16 @@
 <hr>
 <div id="r-type">
 <h2>R-Type</h2>
+<p>Ex: add $t0, $t1, $t2</p>
+<p>or</p>
+<p>sll $t0, $t0, 5</p>
 
 <!--operator-->
-<select name="r-op" id="r-op" data-target="#r-instruction .fncode">
+<select name="r-op" id="r-op" data-target=".fncode">
   <option value="NONE">operator</option>
+
+  <option value="sll">sll</option>
+  <option value="srl">srl</option>
 
   <option value="jr" >jr</option>
 
@@ -58,8 +64,8 @@
 </select>
 
 <!--rd-->
-<select name="r-rd" id="r-rd" data-target="#r-instruction .rd">
-  <option value="0">rd</option>
+<select name="r-rd" id="r-rd" data-target=".rd">
+  <option value="0">rd,</option>
 
   <option value="0">$zero,</option>
   <option value="1">$at,</option>
@@ -96,8 +102,8 @@
 </select>
 
 <!--rs-->
-<select name="r-rs" id="r-rs" data-target="#r-instruction .rs">
-  <option value="0">rs</option>
+<select name="r-rs" id="r-rs" data-target=".rs">
+  <option value="0">rs,</option>
 
   <option value="0">$zero,</option>
   <option value="1">$at,</option>
@@ -134,58 +140,109 @@
 </select>
 
 <!--rt-->
-<select name="r-rt" id="r-rt" data-target="#r-instruction .rt">
+<select name="r-rt" id="r-rt" data-target=".rt">
   <option value="0">rt</option>
 
-  <option value="0">$zero,</option>
-  <option value="1">$at,</option>
-  <option value="2">$v0,</option>
-  <option value="3">$v1,</option>
-  <option value="4">$a0,</option>
-  <option value="5">$a1,</option>
-  <option value="6">$a2,</option>
-  <option value="7">$a3,</option>
-  <option value="8">$t0,</option>
-  <option value="9">$t1,</option>
-  <option value="10">$t2,</option>
-  <option value="11">$t3,</option>
-  <option value="12">$t4,</option>
-  <option value="13">$t5,</option>
-  <option value="14">$t6,</option>
-  <option value="15">$t7,</option>
-  <option value="16">$s0,</option>
-  <option value="17">$s1,</option>
-  <option value="18">$s2,</option>
-  <option value="19">$s3,</option>
-  <option value="20">$s4,</option>
-  <option value="21">$s5,</option>
-  <option value="22">$s6,</option>
-  <option value="23">$s7,</option>
-  <option value="24">$t8,</option>
-  <option value="25">$t9,</option>
-  <option value="26">$k0,</option>
-  <option value="27">$k1,</option>
-  <option value="28">$gp,</option>
-  <option value="29">$sp,</option>
-  <option value="30">$fp,</option>
-  <option value="31">$ra,</option>
+  <option value="0">$zero</option>
+  <option value="1">$at</option>
+  <option value="2">$v0</option>
+  <option value="3">$v1</option>
+  <option value="4">$a0</option>
+  <option value="5">$a1</option>
+  <option value="6">$a2</option>
+  <option value="7">$a3</option>
+  <option value="8">$t0</option>
+  <option value="9">$t1</option>
+  <option value="10">$t2</option>
+  <option value="11">$t3</option>
+  <option value="12">$t4</option>
+  <option value="13">$t5</option>
+  <option value="14">$t6</option>
+  <option value="15">$t7</option>
+  <option value="16">$s0</option>
+  <option value="17">$s1</option>
+  <option value="18">$s2</option>
+  <option value="19">$s3</option>
+  <option value="20">$s4</option>
+  <option value="21">$s5</option>
+  <option value="22">$s6</option>
+  <option value="23">$s7</option>
+  <option value="24">$t8</option>
+  <option value="25">$t9</option>
+  <option value="26">$k0</option>
+  <option value="27">$k1</option>
+  <option value="28">$gp</option>
+  <option value="29">$sp</option>
+  <option value="30">$fp</option>
+  <option value="31">$ra</option>
 </select>
+<!--shamt-->
+<select name="r-shamt" id="r-shamt" data-target=".shamt">
+  <option value="0">shamt (optional)</option>
 
+  <option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select>
+<hr>
 <p id="r-instruction">
-  <span class="op">000000</span>
-  <span class="rs">00000</span>
-  <span class="rt">00000</span>
-  <span class="rd">00000</span>
-  <span class="shamt">00000</span>
-  <span class="fncode">000000</span>
+  <table>
+    <tr>
+      <td><span class="op">000000</span></td>
+     <td><span class="rs">00000</span></td>
+      <td><span class="rt">00000</span></td>
+     <td><span class="rd">00000</span></td>
+      <td><span class="shamt">00000</span></td>
+      <td><span class="fncode">000000</span></td>
+
+    </tr>
+
+    <tr>
+      <td>opcode</td>
+      <td>rs</td>
+      <td>rt</td>
+      <td>rd</td>
+      <td>shamt</td>
+      <td>fcode</td>
+    </tr>
+
+  </table>
 </p>
 
 
 <hr>
 
-<div id="info">
-  <p class=MsoNormal><u><span style='font-size:12.0pt;line-height:107%'>Instruction
-Encoding<o:p></o:p></span></u></p>
+<h2>Data and Information <span class="toggle-btn">[Show]</span></h2>
+<div id="info" class="hidden">
 
 <p class=MsoNormal><u><span style='font-size:12.0pt;line-height:107%'>R-Type<o:p></o:p></span></u></p>
 

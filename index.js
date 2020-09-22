@@ -1,6 +1,8 @@
 // r-type fn codes
 const rTypeFnCodes = {
   "NONE":0,
+  "sll":0,
+  "srl":2,
   "jr": 8,
   "mfhi":16 ,
   "mflo":18 ,
@@ -28,6 +30,14 @@ const targetHandler = (e,codes, bitcount) =>{
     target.textContent = codes[option.value].toString(2).padStart(bitcount, '0');
 };
 
+// show/hide info section
+document.querySelector('.toggle-btn').addEventListener('click',()=>{
+    document.querySelector('#info').classList.toggle('hidden');
+    const text = document.querySelector('.toggle-btn').textContent;
+    document.querySelector('.toggle-btn').textContent = text == '[Show]' ? '[Hide]' : '[Show]';
+
+});
+
 // r type option handlers
 // ======================
 // operator
@@ -38,6 +48,8 @@ document.querySelector('#r-rd').onchange = (e) => targetHandler(e,registers,5);
 document.querySelector('#r-rs').onchange = (e) => targetHandler(e,registers,5);
 // rt
 document.querySelector('#r-rt').onchange = (e) => targetHandler(e,registers,5);
+// shamt 
+document.querySelector('#r-shamt').onchange = (e) => targetHandler(e,registers,5);
 
 
 const rTypeOp = document.querySelector('#r-op');

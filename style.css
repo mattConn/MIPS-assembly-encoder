@@ -2,3 +2,25 @@
     width: 80%;
     margin: 10px auto;
 }
+
+.toggle-btn {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.toggle-btn:hover {
+    text-decoration: underline;
+}
+
+.toggle-btn::selection {
+    color: none;
+}
+
+.hidden {
+    display: none;
+}
+
+td {
+    text-align: center;
+    border: solid 1px black;
+}
