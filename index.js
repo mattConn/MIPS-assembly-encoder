@@ -1,5 +1,5 @@
 // r-type fn codes
-const rType = {
+const rTypeFnCodes = {
   "jr": 8,
   "mfhi":16 ,
   "mflo":18 ,
@@ -17,16 +17,18 @@ const rType = {
   "sltu": 43,
 }
 
-const targetHandler = (e,codes) =>{
+const targetHandler = (e,codes, bitcount) =>{
     const option = e.target.options[e.target.selectedIndex];
-    const target = document.querySelector(option.dataset.target);
-    target.textContent = codes[option.value].toString(2).padStart(6, '0');
+    const target = document.querySelector(e.target.dataset.target);
+    target.textContent = codes[option.value].toString(2).padStart(bitcount, '0');
 };
 
 // r type option handlers
 // ======================
 // operator
-document.querySelector('#r-op').onchange = (e) => targetHandler(e,rType);
+document.querySelector('#r-op').onchange = (e) => targetHandler(e,rTypeFnCodes,6);
+// rs
+// document.querySelector('#r-rd').onchange = (e) => targetHandler(e,rTypeFnCodes);
 
 
 const rTypeOp = document.querySelector('#r-op');

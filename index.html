@@ -30,10 +30,10 @@
 <h2>R-Type</h2>
 
 <!--operator-->
-<select name="r-op" id="r-op">
+<select name="r-op" id="r-op" data-target="#r-instruction .fncode">
   <option value="operator" data-target="foo">operator</option>
 
-  <option value="jr" data-target="#r-instruction .op">jr</option>
+  <option value="jr" >jr</option>
 
   <option value="mfhi">mfhi</option>
   <option value="mflo">mflo</option>
@@ -57,7 +57,7 @@
   <option value="sltu">sltu</option>
 </select>
 
-<select name="rd" id="rd">
+<select name="r-rd" id="r-rd">
   <option value="$t0,">$t0,</option>
   <option value="saab">Saab</option>
   <option value="mercedes">Mercedes</option>
