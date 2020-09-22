@@ -1,5 +1,6 @@
 // r-type fn codes
 const rTypeFnCodes = {
+  "NONE":0,
   "jr": 8,
   "mfhi":16 ,
   "mflo":18 ,
@@ -17,6 +18,10 @@ const rTypeFnCodes = {
   "sltu": 43,
 }
 
+// 32 registers
+const registers = [];
+for(let i = 0; i < 32; i++) registers.push(i);
+
 const targetHandler = (e,codes, bitcount) =>{
     const option = e.target.options[e.target.selectedIndex];
     const target = document.querySelector(e.target.dataset.target);
@@ -27,8 +32,12 @@ const targetHandler = (e,codes, bitcount) =>{
 // ======================
 // operator
 document.querySelector('#r-op').onchange = (e) => targetHandler(e,rTypeFnCodes,6);
+// rd
+document.querySelector('#r-rd').onchange = (e) => targetHandler(e,registers,5);
 // rs
-// document.querySelector('#r-rd').onchange = (e) => targetHandler(e,rTypeFnCodes);
+document.querySelector('#r-rs').onchange = (e) => targetHandler(e,registers,5);
+// rt
+document.querySelector('#r-rt').onchange = (e) => targetHandler(e,registers,5);
 
 
 const rTypeOp = document.querySelector('#r-op');
