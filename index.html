@@ -33,7 +33,7 @@
 <p>sll $t0, $t0, 5</p>
 
 <!--operator-->
-<select name="r-op" id="r-op" data-target=".fncode">
+<select name="r-op" id="r-op" data-target="#r-instruction .fncode">
   <option value="NONE">operator</option>
 
   <option value="sll">sll</option>
@@ -64,7 +64,7 @@
 </select>
 
 <!--rd-->
-<select name="r-rd" id="r-rd" data-target=".rd">
+<select name="r-rd" id="r-rd" data-target="#r-instruction .rd">
   <option value="0">rd,</option>
 
   <option value="0">$zero,</option>
@@ -102,7 +102,7 @@
 </select>
 
 <!--rs-->
-<select name="r-rs" id="r-rs" data-target=".rs">
+<select name="r-rs" id="r-rs" data-target="#r-instruction .rs">
   <option value="0">rs,</option>
 
   <option value="0">$zero,</option>
@@ -140,7 +140,7 @@
 </select>
 
 <!--rt-->
-<select name="r-rt" id="r-rt" data-target=".rt">
+<select name="r-rt" id="r-rt" data-target="#r-instruction .rt">
   <option value="0">rt</option>
 
   <option value="0">$zero</option>
@@ -177,7 +177,7 @@
   <option value="31">$ra</option>
 </select>
 <!--shamt-->
-<select name="r-shamt" id="r-shamt" data-target=".shamt">
+<select name="r-shamt" id="r-shamt" data-target="#r-instruction .shamt">
   <option value="0">shamt (optional)</option>
 
   <option value="0">0</option>
@@ -214,8 +214,12 @@
 <option value="31">31</option>
 </select>
 <hr>
-<p id="r-instruction">
-  <table>
+
+<!-- display result-->
+  <table id="r-instruction">
+    <tr>
+      <td colspan="6"><p class="hex">00000000</p></td>
+    </tr>
     <tr>
       <td><span class="op">000000</span></td>
      <td><span class="rs">00000</span></td>
@@ -232,11 +236,12 @@
       <td>rt</td>
       <td>rd</td>
       <td>shamt</td>
-      <td>fcode</td>
+      <td>fncode</td>
     </tr>
 
   </table>
-</p>
+
+<!-- hex result-->
 
 
 <hr>

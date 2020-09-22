@@ -26,8 +26,14 @@ for(let i = 0; i < 32; i++) registers.push(i);
 
 const targetHandler = (e,codes, bitcount) =>{
     const option = e.target.options[e.target.selectedIndex];
+    console.log(e.target.dataset.target);
     const target = document.querySelector(e.target.dataset.target);
     target.textContent = codes[option.value].toString(2).padStart(bitcount, '0');
+
+    let binStr = "";
+    document.querySelectorAll('#r-instruction span').forEach(i => {binStr += i.textContent; console.log(i.textContent)});
+    console.log(binStr,binStr.length,parseInt(binStr,2).toString(16).padStart(8,'0').toUpperCase());
+    document.querySelector('#r-instruction .hex').textContent = parseInt(binStr,2).toString(16).padStart(8,'0').toUpperCase();
 };
 
 // show/hide info section
@@ -35,6 +41,7 @@ document.querySelector('.toggle-btn').addEventListener('click',()=>{
     document.querySelector('#info').classList.toggle('hidden');
     const text = document.querySelector('.toggle-btn').textContent;
     document.querySelector('.toggle-btn').textContent = text == '[Show]' ? '[Hide]' : '[Show]';
+
 
 });
 
